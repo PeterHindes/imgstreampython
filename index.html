@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Stream</title>
+    <script>
+        function startStream() {
+            var img = document.getElementById('video-stream');
+
+            img.src = "/video_feed"; // Set initial source
+
+            // Function to update image source periodically
+            setInterval(function() {
+                img.src = "/video_feed?" + new Date().getTime(); // Add timestamp to force browser to reload image
+            }, 100); // Adjust the interval as needed
+        }
+    </script>
+</head>
+<body onload="startStream()">
+    <img id="video-stream" alt="Video Stream">
+</body>
+</html>
